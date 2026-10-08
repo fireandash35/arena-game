@@ -15,3 +15,5 @@ shape = SubResource("RectangleShape2D_y3ejc")
 [node name="ColorRect" type="ColorRect" parent="." unique_id=480783277]
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1694486649]
