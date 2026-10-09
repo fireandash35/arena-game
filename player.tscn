@@ -5,15 +5,25 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y3ejc"]
 size = Vector2(42, 39)
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=982545926]
+[sub_resource type="CircleShape2D" id="CircleShape2D_4flbx"]
+radius = 203.44287
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=982545926 groups=["player"]]
 script = ExtResource("1_4flbx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2051202695]
-position = Vector2(21, 17.5)
+position = Vector2(2, 1)
 shape = SubResource("RectangleShape2D_y3ejc")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=480783277]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -17.0
+offset_top = -21.0
+offset_right = 23.0
+offset_bottom = 19.0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1694486649]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=146036134]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1301077696]
+shape = SubResource("CircleShape2D_4flbx")
