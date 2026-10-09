@@ -17,3 +17,9 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1023162572]
+avoidance_enabled = true
+
+[node name="Timer" type="Timer" parent="." unique_id=1294821634]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

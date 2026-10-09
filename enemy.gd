@@ -2,8 +2,9 @@ extends CharacterBody2D
 
 @onready var agent = $NavigationAgent2D
 var speed = 300
-var health = 20
+var health = 90
 var body : CharacterBody2D
+var can_damage = true
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	body = get_tree().get_first_node_in_group('player')
@@ -20,10 +21,17 @@ func _physics_process(delta: float) -> void:
 	velocity = direction * speed
 	move_and_slide()
 
-func target(target:Vector2):
-	agent.target_position = target
-
+func target(tar:Vector2):
+	agent.target_position = tar
 func damage(dam):
-	health -= dam
+	if can_damage:
+		health -= dam
+		$Timer.start()
+		can_damage = false
 	if health <= 0:
 		queue_free()
+
+
+func _on_timer_timeout() -> void:
+	can_damage = true
+	

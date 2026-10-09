@@ -23,4 +23,4 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	for body in $Area2D.get_overlapping_bodies():
 		if body.has_method('damage'):
-			body.damage = damage
+			body.damage(damage)

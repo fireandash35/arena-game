@@ -1,14 +1,15 @@
 [gd_scene format=3 uid="uid://tcm1fu4y1cey"]
 
+[ext_resource type="Script" uid="uid://cyhd6jf272p2k" path="res://demo.gd" id="1_0bhed"]
 [ext_resource type="PackedScene" uid="uid://bn1fhn3aonw1c" path="res://player.tscn" id="1_5hfv0"]
-[ext_resource type="PackedScene" uid="uid://bdqbvdscvghcs" path="res://enemy.tscn" id="2_0bhed"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_7k104"]
-vertices = PackedVector2Array(566.10156, 310.97656, -554.9219, 309.0078, -550.0703, -308.03906, 572.8828, -312.95313)
+vertices = PackedVector2Array(4908.8984, 3343.1094, -5068.039, 3461.8828, -5106.953, -5041.039, 4830.0938, -5080.961)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-560, -318, -565, 319, 576, 321, 583, -323)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-5117, -5051, 4840, -5091, 4919, 3353, -5078, 3472)])
 
 [node name="Node2D" type="Node2D" unique_id=896337453]
+script = ExtResource("1_0bhed")
 
 [node name="CharacterBody2D" parent="." unique_id=982545926 instance=ExtResource("1_5hfv0")]
 
@@ -18,8 +19,12 @@ offset_top = 485.0
 offset_right = 383.0
 offset_bottom = 525.0
 
-[node name="CharacterBody2D2" parent="." unique_id=2072879785 instance=ExtResource("2_0bhed")]
-position = Vector2(176, 181)
-
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=368620292]
+position = Vector2(0, 1)
 navigation_polygon = SubResource("NavigationPolygon_7k104")
+
+[node name="Timer" type="Timer" parent="." unique_id=1364463757]
+wait_time = 0.2
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
