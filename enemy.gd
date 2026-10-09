@@ -14,6 +14,6 @@ func _process(delta: float) -> void:
 	
 	
 	position = speed * direction * delta
-	#jwefhuehfueifheiufb
+	
 	
 	move_and_slide()
